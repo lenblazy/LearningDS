@@ -1,9 +1,11 @@
 package linkedlist
 
-class LinkedList<T> {
+class LinkedList<T> : Iterable<T> {
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
-    private var size = 0
+
+    var size = 0
+        private set
 
     fun push(value: T): LinkedList<T> {
         head = Node(value = value, next = head)
@@ -14,12 +16,12 @@ class LinkedList<T> {
         return this
     }
 
-    fun pop():T? {
+    fun pop(): T? {
         if (!isEmpty()) size--
         val result = head?.value
         head = head?.next
 
-        if (isEmpty()){
+        if (isEmpty()) {
             tail = null
         }
         return result
@@ -91,11 +93,40 @@ class LinkedList<T> {
         return size == 0
     }
 
+    override fun iterator(): Iterator<T> {
+        return LinkedListIterator(this)
+    }
+
     override fun toString(): String {
         return if (isEmpty()) {
             "Empty list"
         } else {
             head.toString()
         }
+    }
+}
+
+class LinkedListIterator<T>(
+    private val list: LinkedList<T>
+) : Iterator<T> {
+
+    private var index = 0
+
+    private var lastNode: Node<T>? = null
+    override fun next(): T {
+        if (index >= list.size) throw IndexOutOfBoundsException()
+        // 2
+        lastNode = if (index == 0) {
+            list.nodeAt(0)
+        } else {
+            lastNode?.next
+        }
+// 3
+        index++
+        return lastNode!!.value
+    }
+
+    override fun hasNext(): Boolean {
+        return index < list.size
     }
 }

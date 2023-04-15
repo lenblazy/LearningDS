@@ -2,18 +2,27 @@ import linkedlist.LinkedList
 
 fun main(args: Array<String>) {
 //    "creating and linking nodes" example
-    val list = LinkedList<Int>()
-    list.push(3).push(2).push(1)
+//    val list = LinkedList<Int>()
+//    list.push(3).push(2).push(1)
 
 //    println("Before inserting: $list")
 //    val insertNodeAt = list.nodeAt(2)!!
 //    list.insert(9, insertNodeAt)
 //    println("After inserting: $list")
 
-    println("Before popping list: $list")
-    val poppedValue = list.pop()
-    println("After popping list: $list")
-    println("Popped value: $poppedValue")
+//    println("Before popping list: $list")
+//    val poppedValue = list.pop()
+//    println("After popping list: $list")
+//    println("Popped value: $poppedValue")
+
+    val list = LinkedList<Int>()
+    list.push(3)
+    list.push(2)
+    list.push(1)
+    println(list)
+    for (item in list) {
+        println("Double: ${item * 2}")
+    }
 }
 
 class Car(var doors: Int)
