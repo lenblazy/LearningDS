@@ -3,6 +3,10 @@ package stack
 interface Stack<Element> {
     fun push(element: Element)
     fun pop(): Element?
+    fun peek(): Element?
+    val count: Int
+    val isEmpty: Boolean
+        get() = count == 0
 }
 
 class StackImpl<T : Any>() : Stack<T> {
@@ -13,11 +17,16 @@ class StackImpl<T : Any>() : Stack<T> {
     }
 
     override fun pop(): T? {
-        if (storage.size == 0) {
-            return null
-        }
-        return storage.removeAt(storage.size - 1)
+        return if (isEmpty) null
+        else storage.removeAt(storage.size - 1)
     }
+
+    override fun peek(): T? {
+        return storage.lastOrNull()
+    }
+
+    override val count: Int
+        get() = storage.size
 
     override fun toString() = buildString {
         appendLine("----top----")
