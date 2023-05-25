@@ -9,7 +9,7 @@ interface Stack<Element> {
         get() = count == 0
 }
 
-class StackImpl<T : Any>() : Stack<T> {
+class StackImpl<T> : Stack<T> {
     private val storage = arrayListOf<T>()
 
     override fun push(element: T) {
