@@ -2,20 +2,23 @@ package queue
 
 class ArrayListQueue<T>: Queue<T> {
 
+    private val list = arrayListOf<T>()
 
-
+    //O(1)
     override fun enqueue(element: T): Boolean {
-        TODO("Not yet implemented")
+        list.add(element)
+        return true
     }
 
-    override fun dequeue(): T? {
-        TODO("Not yet implemented")
-    }
+    //O(n)
+    override fun dequeue(): T? = if (isEmpty) null else list.removeAt(0)
 
+    //O(1)
     override val count: Int
-        get() = TODO("Not yet implemented")
+        get() = list.size
 
-    override fun peek(): T? {
-        TODO("Not yet implemented")
-    }
+    //O(1)
+    override fun peek(): T? = list.getOrNull(0)
+
+    override fun toString(): String = list.toString()
 }

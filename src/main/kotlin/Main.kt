@@ -1,4 +1,5 @@
 import linkedlist.LinkedList
+import queue.ArrayListQueue
 import stack.StackImpl
 
 fun main(args: Array<String>) {
@@ -26,18 +27,29 @@ fun main(args: Array<String>) {
 //    }
 
     //Stack
-    val stack = StackImpl<Int>().apply {
-        push(1)
-        push(2)
-        push(3)
-        push(4)
+//    val stack = StackImpl<Int>().apply {
+//        push(1)
+//        push(2)
+//        push(3)
+//        push(4)
+//    }
+//    print(stack)
+//    val poppedElement = stack.pop()
+//    if (poppedElement != null) {
+//        println("Popped: $poppedElement")
+//    }
+//    print(stack)
+
+    //ArrayListQueue
+    val queue = ArrayListQueue<String>().apply {
+        enqueue("Ray")
+        enqueue("Brian")
+        enqueue("Eric")
     }
-    print(stack)
-    val poppedElement = stack.pop()
-    if (poppedElement != null) {
-        println("Popped: $poppedElement")
-    }
-    print(stack)
+    println(queue)
+    queue.dequeue()
+    println(queue)
+    println("Next up: ${queue.peek()}")
 }
 
 class Car(var doors: Int)
