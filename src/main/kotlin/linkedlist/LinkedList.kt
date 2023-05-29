@@ -121,9 +121,7 @@ class LinkedList<T> : Iterable<T>, Collection<T>, MutableIterator<T>, MutableCol
         return newNode
     }
 
-    override fun isEmpty(): Boolean {
-        return size == 0
-    }
+    override fun isEmpty(): Boolean = size == 0
 
     override fun iterator(): MutableIterator<T> {
         return LinkedListIterator(this)
