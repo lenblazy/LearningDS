@@ -1,21 +1,22 @@
 import linkedlist.LinkedList
 import queue.ArrayListQueue
+import queue.StackQueue
 import stack.StackImpl
 
 fun main(args: Array<String>) {
 //    "creating and linking nodes" example
-    val list = LinkedList<Int>()
-    list.push(3).push(2).push(1)
-
-    println("Before inserting: $list")
-    val insertNodeAt = list.nodeAt(2)!!
-    list.insert(9, insertNodeAt)
-    println("After inserting: $list")
-
-    println("Before popping list: $list")
-    val poppedValue = list.pop()
-    println("After popping list: $list")
-    println("Popped value: $poppedValue")
+//    val list = LinkedList<Int>()
+//    list.push(3).push(2).push(1)
+//
+//    println("Before inserting: $list")
+//    val insertNodeAt = list.nodeAt(2)!!
+//    list.insert(9, insertNodeAt)
+//    println("After inserting: $list")
+//
+//    println("Before popping list: $list")
+//    val poppedValue = list.pop()
+//    println("After popping list: $list")
+//    println("Popped value: $poppedValue")
 
 //    val list = LinkedList<Int>()
 //    list.push(3)
@@ -50,6 +51,20 @@ fun main(args: Array<String>) {
 //    queue.dequeue()
 //    println(queue)
 //    println("Next up: ${queue.peek()}")
+
+    val queue = StackQueue<String>().apply {
+        enqueue("Ray")
+        enqueue("Brian")
+        enqueue("Eric")
+    }
+    println(queue)
+    queue.dequeue()
+    println(queue)
+    queue.enqueue("Lennox")
+    println(queue)
+    println("Next up: ${queue.peek()}")
+    queue.dequeue()
+    println(queue)
 }
 
 class Car(var doors: Int)

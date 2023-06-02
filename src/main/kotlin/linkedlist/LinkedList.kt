@@ -66,7 +66,7 @@ class LinkedList<T> : Iterable<T>, Collection<T>, MutableIterator<T>, MutableCol
         if (head.next == null) return pop()
         // 3
         size--
-// 4
+        // 4
         var prev = head
         var current = head
         var next = current.next
@@ -75,7 +75,7 @@ class LinkedList<T> : Iterable<T>, Collection<T>, MutableIterator<T>, MutableCol
             current = next
             next = current.next
         }
-// 5
+        // 5
         prev.next = null
         tail = prev
         return current.value
