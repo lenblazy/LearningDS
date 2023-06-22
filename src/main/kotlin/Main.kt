@@ -1,3 +1,4 @@
+import binaryTree.BinaryNode
 import linkedlist.LinkedList
 import queue.ArrayListQueue
 import queue.StackQueue
@@ -70,11 +71,27 @@ fun main(args: Array<String>) {
 //    val tree = makeBeverageTree()
 //    tree.forEachDepthFirst { println(it.value) }
 
-    val tree = makeBeverageTree()
+//    val tree = makeBeverageTree()
 //    tree.forEachLevelOrder { println(it.value) }
 
-    tree.search("WKD Blue")?.let { println(it.value) }
-        ?: println("Couldn't find WKD Blue")
+//    tree.search("WKD Blue")?.let { println(it.value) }
+//        ?: println("Couldn't find WKD Blue")
+
+    // --------------------------------
+    val zero = BinaryNode(0)
+    val one = BinaryNode(1)
+    val five = BinaryNode(5)
+    val seven = BinaryNode(7)
+    val eight = BinaryNode(8)
+    val nine = BinaryNode(9)
+    seven.leftChild = one
+    one.leftChild = zero
+    one.rightChild = five
+    seven.rightChild = nine
+    nine.leftChild = eight
+    val tree = seven
+//    println(tree)
+    tree.traverseInOrder { println(it) }
 }
 
 
