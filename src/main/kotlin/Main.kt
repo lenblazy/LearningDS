@@ -91,8 +91,9 @@ fun main(args: Array<String>) {
     nine.leftChild = eight
     val tree = seven
 //    println(tree)
-    tree.traverseInOrder { println(it) }
-    tree.traversePreOrder { println(it) }
+//    tree.traverseInOrder { println(it) }
+//    tree.traversePreOrder { println(it) }
+    tree.traversePostOrder { println(it) }
 }
 
 
