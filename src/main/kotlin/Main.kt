@@ -67,9 +67,16 @@ fun main(args: Array<String>) {
 //    queue.dequeue()
 //    println(queue)
 
+//    val tree = makeBeverageTree()
+//    tree.forEachDepthFirst { println(it.value) }
+
     val tree = makeBeverageTree()
-    tree.forEachDepthFirst { println(it.value) }
+//    tree.forEachLevelOrder { println(it.value) }
+
+    tree.search("WKD Blue")?.let { println(it.value) }
+        ?: println("Couldn't find WKD Blue")
 }
+
 
 fun makeBeverageTree(): TreeNode<String> {
     val tree = TreeNode("Beverages")
