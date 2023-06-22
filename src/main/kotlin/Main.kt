@@ -92,6 +92,7 @@ fun main(args: Array<String>) {
     val tree = seven
 //    println(tree)
     tree.traverseInOrder { println(it) }
+    tree.traversePreOrder { println(it) }
 }
 
 
