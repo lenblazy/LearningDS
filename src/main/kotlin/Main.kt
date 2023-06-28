@@ -1,4 +1,5 @@
 import binaryTree.BinaryNode
+import binaryTree.BinarySearchTree
 import linkedlist.LinkedList
 import queue.ArrayListQueue
 import queue.StackQueue
@@ -78,22 +79,39 @@ fun main(args: Array<String>) {
 //        ?: println("Couldn't find WKD Blue")
 
     // --------------------------------
-    val zero = BinaryNode(0)
-    val one = BinaryNode(1)
-    val five = BinaryNode(5)
-    val seven = BinaryNode(7)
-    val eight = BinaryNode(8)
-    val nine = BinaryNode(9)
-    seven.leftChild = one
-    one.leftChild = zero
-    one.rightChild = five
-    seven.rightChild = nine
-    nine.leftChild = eight
-    val tree = seven
+//    val zero = BinaryNode(0)
+//    val one = BinaryNode(1)
+//    val five = BinaryNode(5)
+//    val seven = BinaryNode(7)
+//    val eight = BinaryNode(8)
+//    val nine = BinaryNode(9)
+//    seven.leftChild = one
+//    one.leftChild = zero
+//    one.rightChild = five
+//    seven.rightChild = nine
+//    nine.leftChild = eight
+//    val tree = seven
 //    println(tree)
 //    tree.traverseInOrder { println(it) }
 //    tree.traversePreOrder { println(it) }
-    tree.traversePostOrder { println(it) }
+//    tree.traversePostOrder { println(it) }
+
+    val bst = BinarySearchTree<Int>()
+    (0..4).forEach {
+        bst.insert(it)
+    }
+    println(bst)
+
+    val exampleTree = BinarySearchTree<Int>().apply {
+        insert(3)
+        insert(1)
+        insert(4)
+        insert(0)
+        insert(2)
+        insert(5)
+    }
+
+    println(exampleTree)
 }
 
 
