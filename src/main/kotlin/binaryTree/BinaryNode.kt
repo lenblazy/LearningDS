@@ -8,6 +8,9 @@ class BinaryNode<T>(val value: T){
     var leftChild: BinaryNode<T>? = null
     var rightChild: BinaryNode<T>? = null
 
+    val min: BinaryNode<T>
+        get() = leftChild?.min ?: this
+
     fun traverseInOrder(visit: Visitor<T>) {
         leftChild?.traverseInOrder(visit)
         visit(value)
