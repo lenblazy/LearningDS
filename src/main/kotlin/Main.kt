@@ -1,10 +1,5 @@
-import binaryTree.BinaryNode
-import binaryTree.BinarySearchTree
-import linkedlist.LinkedList
-import queue.ArrayListQueue
-import queue.StackQueue
-import stack.StackImpl
 import tree.TreeNode
+import trie.Trie
 
 fun main(args: Array<String>) {
 //    "creating and linking nodes" example
@@ -96,22 +91,29 @@ fun main(args: Array<String>) {
 //    tree.traversePreOrder { println(it) }
 //    tree.traversePostOrder { println(it) }
 
-    val bst = BinarySearchTree<Int>()
-    (0..4).forEach {
-        bst.insert(it)
-    }
-    println(bst)
+//    val bst = BinarySearchTree<Int>()
+//    (0..4).forEach {
+//        bst.insert(it)
+//    }
+//    println(bst)
+//
+//    val exampleTree = BinarySearchTree<Int>().apply {
+//        insert(3)
+//        insert(1)
+//        insert(4)
+//        insert(0)
+//        insert(2)
+//        insert(5)
+//    }
+//
+//    println(exampleTree)
 
-    val exampleTree = BinarySearchTree<Int>().apply {
-        insert(3)
-        insert(1)
-        insert(4)
-        insert(0)
-        insert(2)
-        insert(5)
+    val trie = Trie<Char>()
+    trie.insert("cute".toList())
+    if (trie.contains("cute".toList())) {
+        println("cute is in the trie")
     }
 
-    println(exampleTree)
 }
 
 

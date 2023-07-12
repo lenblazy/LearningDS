@@ -27,4 +27,24 @@ class Trie<Key> {
         return current.isTerminating
     }
 
+    fun remove(collection: CollectionType) {
+        // 1
+        var current = root
+        collection.forEach {
+            val child = current.children[it] ?: return
+            current = child
+        }
+        if (!current.isTerminating) return
+// 2
+        current.isTerminating = false
+        // 3
+        val parent = current.parent
+        while (current.children.isEmpty() && !current.isTerminating) {
+            parent?.let {
+                it.children[current.key] = null
+                current = it
+            }
+        }
+    }
+
 }
