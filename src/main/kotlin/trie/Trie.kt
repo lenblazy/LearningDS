@@ -4,6 +4,15 @@ class Trie<Key> {
 
     private val root = TrieNode<Key>(key = null, parent = null)
 
+    private val storedLists: MutableSet<List<Key>> = mutableSetOf()
+    val lists: List<List<Key>>
+        get() = storedLists.toList()
+
+    val count: Int
+        get() = storedLists.count()
+    val isEmpty: Boolean
+        get() = storedLists.isEmpty()
+
     fun insert(list: List<Key>) {
         // 1
         var current = root
@@ -16,6 +25,8 @@ class Trie<Key> {
         }
         // 3
         current.isTerminating = true
+
+        storedLists.add(list)
     }
 
     fun contains(list: List<Key>): Boolean {
@@ -45,6 +56,10 @@ class Trie<Key> {
                 current = it
             }
         }
+
+        storedLists.remove(list)
     }
+
+
 
 }
