@@ -108,11 +108,17 @@ fun main(args: Array<String>) {
 //
 //    println(exampleTree)
 
-    val trie = Trie<Char>()
-    trie.insert("cute".toList())
-    if (trie.contains("cute".toList())) {
-        println("cute is in the trie")
-    }
+//    val trie = Trie<Char>()
+//    trie.insert("cute".toList())
+//    if (trie.contains("cute".toList())) {
+//        println("cute is in the trie")
+//    }
+
+    val array = arrayListOf(1, 5, 15, 17, 19, 22, 24, 31, 105,
+        150)
+    val search31 = array.indexOf(31)
+    val binarySearch31 = array.binarySearch(31)
+    println("indexOf(): $search31")
 
 }
 
