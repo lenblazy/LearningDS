@@ -81,6 +81,33 @@ abstract class AbstractHeap<Element>() : Heap<Element> {
         }
     }
 
+    private fun index(element: Element, i: Int): Int? {
+        if (i >= count) {
+            return null // 1
+        }
+        if (sort(element, elements[i])) {
+            return null // 2
+        }
+        if (element == elements[i]) {
+            return i // 3 }
+            val leftChildIndex = index(element, leftChildIndex(i))
+            if (leftChildIndex != null) return leftChildIndex // 4
+            val rightChildIndex = index(element, rightChildIndex(i))
+            if (rightChildIndex != null) return rightChildIndex // 5
+            return null // 6
+        }
+        return i
+    }
+
+    protected fun heapify(values: ArrayList<Element>) {
+        elements = values
+        if (!elements.isEmpty()) {
+            (count / 2 downTo 0).forEach {
+                siftDown(it)
+            }
+        }
+    }
+
 }
 
 class ComparableHeapImpl<Element : Comparable<Element>>(
@@ -90,5 +117,18 @@ class ComparableHeapImpl<Element : Comparable<Element>>(
 
     override fun compare(a: Element, b: Element): Int =
         comparator.compare(a, b)
+
+    companion object {
+        fun <Element> create(
+            elements: ArrayList<Element>,
+            comparator: Comparator<Element>
+        ): Heap<Element> {
+            val heap = ComparatorHeapImpl(comparator)
+            heap.heapify(elements)
+            return heap
+        }
+
+
+    }
 
 }
