@@ -2,7 +2,7 @@ package sorting.bubbleSort
 
 import sorting.swapAt
 
-fun <T : Comparable<T>> ArrayList<T>.bubbleSort(
+fun <T : Comparable<T>> MutableList<T>.bubbleSort(
     showPasses:
     Boolean = false
 ) {

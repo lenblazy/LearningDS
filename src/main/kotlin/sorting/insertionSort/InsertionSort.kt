@@ -2,8 +2,9 @@ package sorting.insertionSort
 
 import sorting.swapAt
 
-fun <T : Comparable<T>> ArrayList<T>.insertionSort(
-    showPasses: Boolean = false
+fun <T : Comparable<T>> MutableList<T>.insertionSort(
+    showPasses:
+    Boolean = false
 ) {
     if (this.size < 2) return
     // 1

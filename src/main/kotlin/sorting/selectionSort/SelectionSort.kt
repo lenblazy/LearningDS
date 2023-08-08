@@ -2,7 +2,7 @@ package sorting.selectionSort
 
 import sorting.swapAt
 
-fun <T : Comparable<T>> ArrayList<T>.selectionSort(
+fun <T : Comparable<T>> MutableList<T>.selectionSort(
     showPasses:
     Boolean = false
 ) {
